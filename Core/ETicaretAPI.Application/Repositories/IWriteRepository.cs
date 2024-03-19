@@ -6,9 +6,11 @@ namespace ETicaretAPI.Application.Repositories
     {
         Task<bool> AddAsync(T model);
         //Overloading
-        Task<bool> AddAsync(List<T> model);
-        Task<bool> Remove(T model);
-        Task<bool> Remove(string id);
-        Task<bool> UpdateAsync (T model);
+        Task<bool> AddRangeAsync(List<T> datas);
+        bool Remove(T model);
+        bool RemoveRange(List<T> datas);
+        Task<bool> RemoveAsync(string id);
+        bool UpdateAsync (T model);
+        Task<int> SaveAsync();
     }
 }
