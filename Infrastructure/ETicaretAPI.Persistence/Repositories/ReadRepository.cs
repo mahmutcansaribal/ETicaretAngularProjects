@@ -28,10 +28,11 @@ namespace ETicaretAPI.Persistence.Repositories
             => Table.Where(method);
         public async Task<T> GetSinglAsync(Expression<Func<T, bool>> method)
             => await Table.FirstOrDefaultAsync(method);
-        
+
         public async Task<T> GetByIdAsync(string id)
             //Marker Pattern
-            => await Table.FirstOrDefaultAsync(data => data.Id ==Guid.Parse(id));
+            //=> await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+            => await Table.FindAsync(Guid.Parse(id));
 
 
 
